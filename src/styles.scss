@@ -18,13 +18,12 @@ body {
   
     &__nav {
       justify-content: center;
-      display: flex;
       line-height: 20px;
       font-size: 14px;
 
       ul {
         list-style: none;
-        display: flex;
+        
         margin-left: 20px;
       }
 
@@ -80,7 +79,6 @@ body {
     &__sidebar {
       flex-basis: 30%;
       padding: 2rem;
-      // Add styles for your sidebar content here
     }
   
     &__content {
@@ -117,7 +115,8 @@ body {
     border-radius: 5px;
     margin-bottom: 15px;
     width: 100%;
-    display: flex;
+    display: grid;
+    flex-shrink:inherit;
     max-width: 1024px;
 
     .first{
@@ -255,6 +254,8 @@ body {
     }
   }
 
+
+
   .card{
    background-color: white;
    margin: auto;
@@ -299,7 +300,7 @@ body {
   }
   
   .signup{
-    display: flex;
+   
     margin-top: 2rem;
 
     p{
@@ -317,7 +318,6 @@ body {
       border-bottom-left-radius: 8px;
       border: none;
       margin-top: 2rem;
-      margin-left: 10rem;
     }
 
     
@@ -339,25 +339,11 @@ body {
   .footer {
     background-color: #212731;
     color: #B6BDC4;
-    height: 452px;
-    display: flex;
+    height: 700px;
     width: 100%;
     align-items: center;
 
-    .leftside{
-      width: 30%;
-      padding-left: 20rem;
-    }
-
-    .middleside{
-      width: 30%;
-      margin-right: 10rem;
-    }
-
-    .rightside{
-      width: 30%;
-      margin-top: 4rem;
-    }
+    
 
     p{
       font-size: 16px;
@@ -378,3 +364,58 @@ body {
       }
     }
   }
+
+  @media (min-width: 768px) {
+    .main__sidebar {
+        flex-basis: 30%;
+    }
+
+    .content__grid-item{
+      display: flex;
+    }
+
+    .cardcontainer {
+      display: flex;
+    }
+
+    .main__content {
+        flex-basis: 70%;
+    }
+
+    .footer{
+      display: flex;
+      height: 100%;
+
+      .leftside{
+        width: 30%;
+        padding-left: 20rem;
+      }
+  
+      .middleside{
+        width: 30%;
+        margin-right: 10rem;
+      }
+  
+      .rightside{
+        width: 30%;
+        margin-top: 4rem;
+      }
+    }
+
+
+    .header__nav {
+     display: flex;
+
+      ul {
+      display: flex;
+      } }
+
+
+      .signup{
+        display: flex; 
+        
+        input{
+          margin-left: 10rem;
+        }
+      }
+}

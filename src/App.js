@@ -157,9 +157,9 @@ function App() {
             ))}
           </div>
         </section>
-        <div className='cardcontainer'>
+        <div >
         <h3>Related deals you might like for</h3>
-              <div style={{display : "flex"}}>
+              <div className='cardcontainer'>
                 
         {
           cardData.map((items) =>(
