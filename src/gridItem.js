@@ -1,10 +1,18 @@
 import React from 'react';
 import img from './images/img.png'
-function GridItem({ title, rating, description, buttonLabel ,rating_desc , desc , achieve}) {
+function GridItem({ title, rating, description, buttonLabel ,rating_desc , desc , achieve ,num , svg }) {
+
+ const data = [ { name : "Documentation" } , { name : "Easy Use" }, { name : "Out of box" }]
+
+ 
   return (
     <article className="content__grid-item">
+
+    
     <div className='first'>
-    <div className='fsbox'>
+
+    {
+      achieve ? <div className='fsbox'>
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.375 1.6665C4.375 1.32133 4.65482 1.0415 5 1.0415H15C15.3452 1.0415 15.625 1.32133 15.625 1.6665V7.35278C15.625 10.5234 13.1236 13.1248 10 13.1248C6.87644 13.1248 4.375 10.5234 4.375 7.35278V1.6665ZM5.625 2.2915V7.35278C5.625 9.86744 7.60071 11.8748 10 11.8748C12.3993 11.8748 14.375 9.86744 14.375 7.35278V2.2915H5.625Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M1.0415 4.58301C1.0415 4.23783 1.32133 3.95801 1.6665 3.95801H4.99984C5.34502 3.95801 5.62484 4.23783 5.62484 4.58301V8.74967C5.62484 9.09485 5.34502 9.37467 4.99984 9.37467C2.92768 9.37467 1.0415 7.64239 1.0415 4.58301ZM2.32395 5.20801C2.50507 6.88881 3.41739 7.77588 4.37484 8.03944V5.20801H2.32395Z" fill="white"/>
@@ -14,17 +22,47 @@ function GridItem({ title, rating, description, buttonLabel ,rating_desc , desc 
 </svg>
 
       <p>{achieve}</p>
-    </div>
+    </div> : ""
+    }
+    
     <div className='circle'>
-      <p>1</p>
+      <p>{num}</p>
     </div>
+
     <img src={img} alt=""></img>
+    <br></br> <p style={{margin: "8px" , marginLeft:"2.5rem"}}>{svg}</p>
     </div>
     <div className='second'>
-    <h4>{title}</h4>
-<p>-{desc}</p>
+   
+<p><span style={{fontSize : "16px" , fontWeight : 700}}>{title}</span>{desc}</p>
     <h4>Main highlights</h4>
-    <p>{description}</p>
+    <p>{description ? description :  
+    <div>
+    <ul>
+      <li><span>9.9 </span>Building Responsive</li>
+      <li><span>8.9 </span>Cool</li>
+      <li><span>9.9 </span>Docs</li>
+      </ul>
+
+      <p style={{fontSize:"16px" , color:"#2C384A"}}>Why we love it</p>
+
+      {
+        data.map((item) =>(
+          <div key={item.name} style={{display : "flex"}}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 1.25C9.03169 1.25 6.34318 2.45406 4.3986 4.3986C3.40884 5.38837 2.61093 6.57088 2.06597 7.88493C1.38329 9.27784 1 10.8442 1 12.5C1 18.2989 5.70101 23 11.5 23C13.1558 23 14.7222 22.6166 16.1151 21.934C17.4291 21.389 18.6116 20.5912 19.6014 19.6014C21.546 17.6568 22.7501 14.9683 22.7501 12C22.7501 9.03169 21.546 6.34317 19.6014 4.3986C17.6568 2.45406 14.9683 1.25 12 1.25Z" fill="#EBF5FF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5303 8.46967C17.8233 8.76257 17.8233 9.23743 17.5303 9.53033L11.5303 15.5303C11.2374 15.8232 10.7626 15.8232 10.4697 15.5303L7.46967 12.5303C7.17678 12.2375 7.17678 11.7626 7.46967 11.4697C7.76256 11.1768 8.23743 11.1768 8.53033 11.4697L11 13.9393L16.4697 8.46967C16.7626 8.17678 17.2374 8.17678 17.5303 8.46967Z" fill="#0855A1"/>
+</svg> <nobr/> <p style={{margin : "4px"}}>{item.name}</p>
+  </div>  ))
+      }
+
+      
+      </div>
+      
+      }</p>
+    
+    <a href="www.test.com">Show more</a>
+   
       </div>
       <div className='third'>
       <div className='rating'>
@@ -36,7 +74,11 @@ function GridItem({ title, rating, description, buttonLabel ,rating_desc , desc 
 <path d="M19.3445 0L17.6055 3.61194L13.6553 4.19479L16.5168 7.04149L15.8328 11L19.3445 9.09502L22.857 11L22.178 7.04149L25.0346 4.19479L21.1062 3.61194L19.3445 0Z" fill="#FFB80F"/>
 <path d="M32.9998 0L31.2608 3.61194L27.3105 4.19479L30.1721 7.04149L29.4881 11L32.9998 9.09502L36.5123 11L35.8333 7.04149L38.6899 4.19479L34.7615 3.61194L32.9998 0Z" fill="#FFB80F"/>
 <path d="M46.6546 0L44.9155 3.61194L40.9653 4.19479L43.8269 7.04149L43.1429 11L46.6546 9.09502L50.167 11L49.488 7.04149L52.3446 4.19479L48.4163 3.61194L46.6546 0Z" fill="#FFB80F"/>
-<path d="M60.3097 0L58.5709 3.61194L54.6206 4.19479L57.4819 7.04149L56.7982 11L60.3097 9.09502L63.8225 11L63.1431 7.04149L65.9999 4.19479L62.0718 3.61194L60.3097 0Z" fill="#FFB80F"/>
+{
+  parseFloat(rating) === 9.8  && <path d="M60.3097 0L58.5709 3.61194L54.6206 4.19479L57.4819 7.04149L56.7982 11L60.3097 9.09502L63.8225 11L63.1431 7.04149L65.9999 4.19479L62.0718 3.61194L60.3097 0Z" fill="#FFB80F" /> }
+ { parseFloat(rating) === 9.5  && <path fill-rule="evenodd" clip-rule="evenodd" d="M60.6653 0.223529C60.5982 0.0862699 60.4599 -0.000392342 60.3086 1.33562e-06C60.1578 0.000394982 60.0201 0.0877758 59.9536 0.225384L58.4276 3.38229L54.9606 3.89202C54.8111 3.91399 54.6869 4.02003 54.6402 4.1656C54.5933 4.31116 54.6321 4.47103 54.7401 4.57806L57.2521 7.06804L56.6523 10.5279C56.626 10.6795 56.6873 10.833 56.8101 10.9233C56.9329 11.0137 57.0962 11.0251 57.2299 10.9527L60.3097 9.28801L63.3907 10.9527C63.5244 11.025 63.6871 11.0137 63.81 10.9234C63.9329 10.8332 63.9944 10.6799 63.9682 10.5284L63.3725 7.06804L65.8805 4.57781C65.9886 4.47077 66.0273 4.31103 65.9806 4.16558C65.9334 4.02013 65.8094 3.91414 65.6603 3.89206L62.2118 3.38228L60.6653 0.223529ZM60.2836 8.43045C60.3564 8.4255 60.4304 8.44095 60.4964 8.47681L63.0465 9.85467L62.5549 6.99786C62.5321 6.86729 62.5748 6.73392 62.6681 6.64113L64.7528 4.57128L61.8915 4.14831C61.7623 4.12926 61.6508 4.0473 61.5933 3.929L60.3376 1.36471L60.2836 8.43045Z" fill="#FFB80F"/>
+
+}
 </g>
 <defs>
 <clipPath id="clip0_601_219">
@@ -44,6 +86,7 @@ function GridItem({ title, rating, description, buttonLabel ,rating_desc , desc 
 </clipPath>
 </defs>
 </svg>
+
 
       </div>
       

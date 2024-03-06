@@ -2,27 +2,69 @@ import React from 'react';
 import './styles.scss'
 import GridItem from './gridItem';
 import { CiSearch } from "react-icons/ci";
+import { FaChevronDown } from "react-icons/fa";
+import img from './images/img.png'
 
 const contentData = [
   {
     title: 'WixPro 72-Inch Responsive Website Builder',
-    desc:" Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)",
+    desc:" -Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)",
     rating: '9.8 ',
+    svg:"Builder 1",
     rating_desc : 'Exceptional',
     description: '[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.',
     buttonLabel: 'View',
-    svg : <path d="M0 0H1592V2347H0V0Z" fill="#FBFCFD"/>,
-    achieve :"Best Choice"
+    achieve :"Best Choice",
+    num: "1"
     
   },
   {
     title: 'SiteCraft',
-    desc:"Advanced Site Creation Toolkit, Intuitive Drag-and-Drop Editor for Dynamic Websites and E-commerce Platforms (Green/White)",
-    rating: '9.5 Excellent',
+    desc:"-Advanced Site Creation Toolkit, Intuitive Drag-and-Drop Editor for Dynamic Websites and E-commerce Platforms (Green/White)",
+    rating: '9.5 ',
+    rating_desc : 'Excellent',
+    svg:"Builder",
     description: '[What You Get]: Gain access to the SiteCraft design studio, featuring a robust selection of design elements, SEO optimization tools, and e-commerce integrations.',
-    buttonLabel: 'View'
+    buttonLabel: 'View',
+    achieve :"Best Value",
+    num: "2"
+  },
+  {
+    title: 'WixPro 72-Inch Responsive Website Builder',
+    desc:" -Comprehensive Digital Platform Creation Tool, Streamlined Design Interface for Professional Websites and Online Stores (Black/Blue)",
+    rating: '9.3',
+    rating_desc : 'Exceptional',
+    svg:"Builder 1",
+    description: '[What You Get]: Receive the WixPro website builder suite, access to premium design templates, an extensive library of widgets and apps, and detailed step-by-step guides.',
+    buttonLabel: 'View',
+    num: "3"
+  },
+  {
+    title: 'CDK Resposive Builder',
+    desc:":An extensive library of widgets and apps, and detailed step-by-step guides",
+    rating: '9.1',
+    rating_desc : 'Very Good',
+    svg:"CDK",
+    buttonLabel: 'View',
+    num: "4"
   }
 ];
+
+const cardData = [{
+  title : "Webbuilder 1",
+  desc :"Computer  Modern clasic with wix support",
+  price :"$39.96",
+},
+{
+  title : "Webbuilder 1",
+  desc :"Computer  Modern clasic with wix support",
+  price :"$39.96",
+},
+{
+  title : "Webbuilder 1",
+  desc :"Computer  Modern clasic with wix support",
+  price :"$39.96",
+}]
 
 function App() {
   return (
@@ -105,7 +147,7 @@ function App() {
           <li>BlueHosting</li>
         </ul>
         </div>
-      
+        <p style={{fontSize : "14px" , color : "#727D87"}}> Home  &gt; Hosting for all  &gt; Hosting &gt;  Hosting6 &gt; Hosting5 </p>
         <section className="main__content">
 
         
@@ -115,9 +157,69 @@ function App() {
             ))}
           </div>
         </section>
+        <div className='cardcontainer'>
+        <h3>Related deals you might like for</h3>
+              <div style={{display : "flex"}}>
+                
+        {
+          cardData.map((items) =>(
+            <div className='card'>
+            <img src={img} alt=""></img>
+            <p><span>20% Off </span> <span>Limited time</span></p>
+
+            <h4>{items.title}</h4>
+            <p>{items.desc}</p>
+            <p>{items.price} <span>$49.96</span> <span style={{color: "red"}}>(20% Off)</span></p>
+            <button>View Deal</button>
+            </div>
+          ))
+        }
+       
+
+        
+        </div>
+
+        <div  className='signup'>
+        
+        <p>Sign up and get exclusive special deals</p>
+
+        <input
+    className="search-box"
+    type="search"
+    placeholder=""
+   
+  /> <nobr /><button >Sign Up</button>
+
+
+        </div>
+      </div>
       </main>
+
+      
       <footer className="footer">
-        {/* Add your footer content here */}
+       <div className='leftside'>
+        <p>Categories</p>
+        <ul>
+          <li>Web Builder</li>
+          <li>Hosting</li>
+          <li>Data Center</li>
+          <li>Robotic-Automation</li>
+          <li> .</li>
+        </ul>
+       </div>
+       <div className='middleside'>
+        <p>Contact</p>
+        <ul>
+          <li>Contact</li>
+          <li>Privacy Policy</li>
+          <li>Terms Of Service</li>
+          <li>Categories</li>
+          <li>About</li>
+        </ul>
+       </div>
+       <div className='rightside'>
+       United States <FaChevronDown />
+       </div>
       </footer>
     </div>
   );
